@@ -1,13 +1,13 @@
 import java.util.Objects;
 
-public class Empoyee {
-    private FullName fullName;
+public class Employee {
+    private String fullName;
     private int department;
     private int salary;
     private int id;
     private static int counter;
 
-    public FullName getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
@@ -27,8 +27,8 @@ public class Empoyee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Empoyee empoyee = (Empoyee) o;
-        return department == empoyee.department && salary == empoyee.salary && id == empoyee.id && Objects.equals(fullName, empoyee.fullName);
+        Employee employee = (Employee) o;
+        return department == employee.department && salary == employee.salary && id == employee.id && Objects.equals(fullName, employee.fullName);
     }
 
     @Override
@@ -44,12 +44,20 @@ public class Empoyee {
         this.salary = salary;
     }
 
-    public Empoyee(FullName fullName, int department, int salary) {
+    public Employee(String fullName, int department, int salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
         id = ++counter;
-
-
     }
+
+    @Override
+    public String toString() {
+        return "ФИО сотрудника: " + getFullName() + ", отдел: " + getDepartment() + ", заработная плата: " + getSalary() + ", номер id: " + getId();
+    }
+
+
+
+
+
 }
