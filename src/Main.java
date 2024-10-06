@@ -1,10 +1,10 @@
 public class Main {
 
 
-    private static Employee[] employees = new Employee[10];
+  //  private static Employee[] employees = new Employee[10];
 
     public static void main(String[] args) {
-        employees[0] = new Employee("Иванов Олег Артемович", 1, 85000);
+/*      employees[0] = new Employee("Иванов Олег Артемович", 1, 85000);
         employees[1] = new Employee("Попов Арсений Борисович", 3, 100000);
         employees[2] = new Employee("Пикалов Виктор Григорьевич", 1, 68000);
         employees[3] = new Employee("Сидоров Михаил Анатольевич", 2, 110000);
@@ -13,28 +13,65 @@ public class Main {
         employees[6] = new Employee("Андропов Владислав Егорович", 5, 77000);
         employees[7] = new Employee("Леонова Марина Викторовна", 5, 82000);
         employees[8] = new Employee("Смирнов Алексей Максимович", 2, 80000);
-        employees[9] = new Employee("Новикова Елена Александровна", 4, 90000);
+        employees[9] = new Employee("Новикова Елена Александровна", 4, 90000);*/
 
-        printListEmployee();
-        System.out.println("Общая сумма затрат на зарплаты работников составляет: " + countSumSalaryEmployees()); // Список всех сотрудников и их данных
-        System.out.println("Работник с минимальной зарплатой: " + findEmployeeMinSalary().getFullName());
-        System.out.println("Работник с максимальной зарплатой: " + findEmployeeMaxSalary());
-        System.out.println("Средняя зарплата работников составляет: " + countAverageSumSalaryEmployees());
-        printFullNameEmployees();
-        indexSalary(5);
-        System.out.println(employees[1]); // для демонстрации выполненого метода индексации зарплаты
-        System.out.println("Работник с минимальной зарплатой из " + findMinSalaryInDepartment(2).getDepartment() + " отдела: " + findMinSalaryInDepartment(2).getFullName());
-        System.out.println("Работник с максимальной зарплатой из " + findMaxSalaryInDepartment(4).getDepartment() + " отдела: " + findMaxSalaryInDepartment(4).getFullName());
-        System.out.println("Общая сумма затрат на зарплаты работников в 1 отделе составляет: " +  + countSumSalaryInDepartment(1));
-        System.out.println("Средняя зарплата во 2 отделе составляет: " + countAverageSumSalaryEmployeesDepartment(2));
-        printEmployeesInDepartment(2);
+        EmployeeBook employeeBook = new EmployeeBook();
+
+        System.out.println(employeeBook.addEmployee("Иванов Олег Артемович", 1, 85000));
+        System.out.println(employeeBook.addEmployee("Попов Арсений Борисович", 3, 100000));
+        System.out.println(employeeBook.addEmployee("Пикалов Виктор Григорьевич", 1, 68000));
+        System.out.println(employeeBook.addEmployee("Сидоров Михаил Анатольевич", 2, 110000));
+        System.out.println(employeeBook.addEmployee("Краснова Валерия Дмитреевна", 4, 80000));
+        System.out.println(employeeBook.addEmployee("Миронов Геннадий Мирославович", 1, 66000));
+        System.out.println(employeeBook.addEmployee("Андропов Владислав Егорович", 5, 77000));
+        System.out.println(employeeBook.addEmployee("Леонова Марина Викторовна", 5, 82000));
+        System.out.println(employeeBook.addEmployee("Смирнов Алексей Максимович", 2, 80000));
+        System.out.println(employeeBook.addEmployee("Новикова Елена Александровна", 4, 90000));
+        System.out.println();
+
+        System.out.println(employeeBook.addEmployee("Гордеев Василий Яковлевич", 2, 80000));
+        System.out.println();
+
+        employeeBook.printListEmployee();
+        System.out.println();
+
+        employeeBook.removeEmployee(6);
+        System.out.println();
+        employeeBook.printListEmployee();
+
+        System.out.println();
+        System.out.println("Общая сумма затрат на зарплаты работников составляет: " + employeeBook.countSumSalaryEmployees()); // Список всех сотрудников и их данных
+        System.out.println();
+        System.out.println("Работник с минимальной зарплатой: " + employeeBook.findEmployeeMinSalary().getFullName());
+        System.out.println();
+        System.out.println("Работник с максимальной зарплатой: " + employeeBook.findEmployeeMaxSalary());
+        System.out.println();
+        System.out.println("Средняя зарплата работников составляет: " + employeeBook.countAverageSumSalaryEmployees());
+        System.out.println();
+        employeeBook.printFullNameEmployees();
+        System.out.println();
+        employeeBook.indexSalary(5);
+        System.out.println();
+      //  System.out.println(employeeBook.toString()); // для демонстрации выполненого метода индексации зарплаты
+        System.out.println("Работник с минимальной зарплатой из " + employeeBook.findMinSalaryInDepartment(2).getDepartment() + " отдела: " + employeeBook.findMinSalaryInDepartment(2).getFullName());
+        System.out.println();
+        System.out.println("Работник с максимальной зарплатой из " + employeeBook.findMaxSalaryInDepartment(4).getDepartment() + " отдела: " + employeeBook.findMaxSalaryInDepartment(4).getFullName());
+        System.out.println();
+        System.out.println("Общая сумма затрат на зарплаты работников в 1 отделе составляет: " + employeeBook.countSumSalaryInDepartment(1));
+        System.out.println();
+        System.out.println("Средняя зарплата во 2 отделе составляет: " + employeeBook.countAverageSumSalaryEmployeesDepartment(2));
+        System.out.println();
+        employeeBook.printEmployeesInDepartment(2);
+        System.out.println();
         System.out.println("Работники с зарплатой меньше 80000");
-        printEmployeesWithSalaryLess(80000);
+        employeeBook.printEmployeesWithSalaryLess(80000);
+        System.out.println();
         System.out.println("Работники с зарплатой больше или равно 105000");
-        printEmployeesWithSalaryMore(105000);
+        employeeBook.printEmployeesWithSalaryMore(105000);
+        System.out.println(employeeBook.getEmployeeById(8));
     }
 
-    public static void printListEmployee() {          //Метод получения списка всех сотрудников и их данных
+    /*public static void printListEmployee() {          //Метод получения списка всех сотрудников и их данных
         for (int i = 0; i < employees.length; i++) {
             System.out.println("employee[" + i + "] = " + employees[i]);
         }
@@ -175,5 +212,5 @@ public class Main {
                 System.out.println("employee[" + i + "] = " + employees[i]);
             }
         }
-    }
+    }*/
 }
