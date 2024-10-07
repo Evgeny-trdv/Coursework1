@@ -35,7 +35,9 @@ public class Main {
         employeeBook.printListEmployee();
         System.out.println();
 
-        employeeBook.removeEmployee(6);
+        System.out.println(employeeBook.removeEmployee(6));
+        System.out.println();
+        System.out.println(employeeBook.removeEmployee(-1)); //для проверки
         System.out.println();
         employeeBook.printListEmployee();
 
@@ -59,7 +61,7 @@ public class Main {
         System.out.println();
         System.out.println("Общая сумма затрат на зарплаты работников в 1 отделе составляет: " + employeeBook.countSumSalaryInDepartment(1));
         System.out.println();
-        System.out.println("Средняя зарплата во 2 отделе составляет: " + employeeBook.countAverageSumSalaryEmployeesDepartment(2));
+        System.out.println("Средняя зарплата во 2 отделе составляет: " + employeeBook.findAverageSumSalaryEmployeesDepartment(2)); //findAverageSumSalaryEmployeesDepartment
         System.out.println();
         employeeBook.printEmployeesInDepartment(2);
         System.out.println();
@@ -68,7 +70,7 @@ public class Main {
         System.out.println();
         System.out.println("Работники с зарплатой больше или равно 105000");
         employeeBook.printEmployeesWithSalaryMore(105000);
-        System.out.println(employeeBook.getEmployeeById(8));
+        System.out.println(employeeBook.getEmployeeById(5));
     }
 
     /*public static void printListEmployee() {          //Метод получения списка всех сотрудников и их данных
